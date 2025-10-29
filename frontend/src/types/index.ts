@@ -1,30 +1,19 @@
-import axios from 'axios';
+// src/types/index.ts
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
+export interface Slot {
+  id: string;
+  time: string;
+  available: boolean;
+}
 
-const api = axios.create({
-  baseURL: API_URL,
-  headers: {
-    'Content-Type': 'application/json',
-  },
-});
-
-export const getExperiences = async () => {
-  const response = await api.get('/experiences');
-  return response.data;
-};
-
-export const getExperienceById = async (id: string) => {
-  const response = await api.get(`/experiences/${id}`);
-  return response.data;
-};
-
-export const createBooking = async (bookingData: any) => {
-  const response = await api.post('/bookings', bookingData);
-  return response.data;
-};
-
-export const validatePromo = async (code: string, subtotal: number) => {
-  const response = await api.post('/promo/validate', { code, subtotal });
-  return response.data;
-};
+export interface Experience {
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  imageUrl: string;
+  location: string;
+  duration: string;
+  rating: number;
+  slots: Slot[];
+}

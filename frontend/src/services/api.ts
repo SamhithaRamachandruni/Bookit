@@ -1,4 +1,6 @@
+// src/services/api.ts
 import axios from 'axios';
+import { Experience } from '@/types';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
 
@@ -9,14 +11,14 @@ const api = axios.create({
   },
 });
 
-export const getExperiences = async () => {
+export const getExperiences = async (): Promise<Experience[]> => {
   const response = await api.get('/experiences');
-  return response.data;
+  return response.data as Experience[];
 };
 
-export const getExperienceById = async (id: string) => {
+export const getExperienceById = async (id: string): Promise<Experience> => {
   const response = await api.get(`/experiences/${id}`);
-  return response.data;
+  return response.data as Experience;
 };
 
 export const createBooking = async (bookingData: any) => {
@@ -24,7 +26,15 @@ export const createBooking = async (bookingData: any) => {
   return response.data;
 };
 
-export const validatePromo = async (code: string, subtotal: number) => {
+export interface PromoResponse {
+  valid: boolean;
+  discount: number;
+}
+
+export const validatePromo = async (
+  code: string,
+  subtotal: number
+): Promise<PromoResponse> => {
   const response = await api.post('/promo/validate', { code, subtotal });
-  return response.data;
+  return response.data as PromoResponse;
 };

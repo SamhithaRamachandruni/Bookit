@@ -18,7 +18,7 @@ A fullstack web application for booking travel experiences with slot management.
 
 1. Clone the repository:
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/SamhithaRamachandruni/Bookit
 cd bookit
 ```
 

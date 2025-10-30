@@ -18,4 +18,5 @@ export interface Experience {
   duration: string;
   rating: number;
   slots: Slot[];
+  basePrice: number;
 }

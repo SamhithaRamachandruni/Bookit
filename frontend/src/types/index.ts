@@ -2,11 +2,13 @@
 
 export interface Slot {
   id: string;
+  date:string;
   time: string;
   available: boolean;
 }
 
 export interface Experience {
+  title: any;
   id: string;
   name: string;
   description: string;

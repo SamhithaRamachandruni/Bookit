@@ -2,22 +2,26 @@
 
 export interface Slot {
   id: string;
-  date:string;
-  time: string;
-  available: boolean;
+  date: string;            
+  time: string;            
+  availableSpots: number;  
+  available: boolean;     
 }
 
 export interface Experience {
-  title: any;
   id: string;
-  name: string;
+  title: string;
+  name?: string;           
   description: string;
-  price: number;
-  imageUrl: string;
   location: string;
-  duration: string;
-  rating: number;
+  duration?: string;
+  rating?: number;
   slots: Slot[];
+
+
   basePrice: number;
-   image: string;
+  price?: number;
+
+  image: string;
+  imageUrl?: string;
 }

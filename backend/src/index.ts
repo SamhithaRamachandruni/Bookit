@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import { sequelize } from './config/database.js';
+import { sequelize } from './config/database';
 import experiencesRouter from './routes/experiences.js';
 import bookingsRouter from './routes/bookings.js';
 import promoRouter from './routes/promo.js';
